@@ -1,12 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 
 export function PasteDisplay() {
 
     const [paste, setPaste] = useState<string>("")
-    const [saved, setSaved] = useState<boolean>(false)
+    const [saved, setSaved] = useState<boolean>(false)  
     const [shareLink, setShareLink] = useState<string>("")
+    const [isEditable, setIsEditable] = useState<boolean>(false)
+
+    useEffect(() => {
+        const pasteId = window.location.pathname.split('/')[2]; // Assuming URL pattern is /pastes/:id
+        if (pasteId) {
+            fetchPaste(pasteId);
+        }
+    }, []);
+
+    async function fetchPaste(pasteId: string) {
+        try {
+            const response = await axios.get(`http://localhost:3000/pastes/${pasteId}`);
+            if (response.status === 200) {
+                setPaste(response.data.content);
+            }
+        } catch (error) {
+            console.error("Failed to fetch paste:", error);
+        }
+    }
 
     async function save() {
         console.log(paste)
@@ -22,11 +41,15 @@ export function PasteDisplay() {
             console.log(response, "response");
             if (response.status === 201) {
                 setSaved(true);
-                setShareLink(`http://localhost:3000/pastes/${response.data.id}`);
+                setShareLink(`http://localhost:5173/pastes/${response.data.id}`);
             }
         } catch (error) {
             console.error("An error occurred:", error);
         }
+    }
+
+    function handleEdit() {
+        setIsEditable(true);
     }
 
     async function copyShareLink() {
@@ -46,10 +69,13 @@ export function PasteDisplay() {
             <textarea
                 value={paste}
                 onChange={(e) => setPaste(e.target.value)}
+                readOnly={!isEditable}
                 placeholder="Enter your paste here"
             />
             <button onClick={() => setPaste("")}>Clear</button>
             <button onClick={save} >Save</button>
+
+            {!isEditable && <button onClick={handleEdit}>Edit</button>}
 
             {saved && (
                 <button onClick={copyShareLink}>Copy Share Link</button>
