@@ -2,13 +2,14 @@
 export function NavBar() {
     return (
         <div className="navbar-container">
-            <nav>
-            <ul className="navbar">
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
+            <nav className="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
         </div>
     );
 }

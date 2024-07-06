@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import './App.css';
 import axios from "axios";
-
 
 export function PasteDisplay() {
 
@@ -64,7 +64,7 @@ export function PasteDisplay() {
     }
 
     return (
-        <div>
+        <div className="paste-container">
             <h1>Paste Display</h1>
             <textarea
                 value={paste}
