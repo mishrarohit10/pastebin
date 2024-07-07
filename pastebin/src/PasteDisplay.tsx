@@ -65,7 +65,7 @@ export function PasteDisplay() {
 
     return (
         <div className="paste-container">
-            <h1>Paste Display</h1>
+            <h1>Paste here</h1>
             <textarea
                 value={paste}
                 onChange={(e) => setPaste(e.target.value)}
