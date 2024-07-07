@@ -7,7 +7,7 @@ export function PasteDisplay() {
     const [paste, setPaste] = useState<string>("")
     const [saved, setSaved] = useState<boolean>(false)  
     const [shareLink, setShareLink] = useState<string>("")
-    const [isEditable, setIsEditable] = useState<boolean>(false)
+    const [isEditable, setIsEditable] = useState<boolean>(true)
 
     useEffect(() => {
         const pasteId = window.location.pathname.split('/')[2]; 
@@ -24,6 +24,8 @@ export function PasteDisplay() {
             }
         } catch (error) {
             console.error("Failed to fetch paste:", error);
+        } finally {
+            setIsEditable(false);
         }
     }
 
