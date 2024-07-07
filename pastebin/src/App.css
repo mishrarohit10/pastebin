@@ -1,10 +1,14 @@
-
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #817272;
+}
 
 /* navbar */
 
 .navbar-container {
   width: 100%;
-  background-color: black; 
+  background-color: #566463;
   overflow: hidden; 
 }
 
@@ -41,40 +45,61 @@
 /* paste-display */
 
 .paste-container {
-  background-color: #f9f9f9; /* Light background for contrast */
+  background-color: #f9f9f9; 
   padding: 20px;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   max-width: 800px;
-  margin: 20px auto; /* Center container */
+  margin: 20px auto; 
 }
 
 .paste-container h1 {
-  color: #333; /* Dark color for the header */
-  font-size: 24px; /* Appropriate size for the header */
+  color: #333; 
+  font-size: 24px;
 }
 
 .paste-container textarea {
-  width: 100%; /* Full width of the container */
-  height: 300px; /* Enough height to display multiple lines of text */
-  margin-top: 10px; /* Space between the header and the textarea */
-  padding: 10px; /* Padding inside the textarea */
-  border: 1px solid #ccc; /* Subtle border */
-  border-radius: 4px; /* Rounded corners for the textarea */
-  box-sizing: border-box; /* Ensures padding does not affect the final width */
+  color: black;
+  width: 100%; 
+  height: 300px; 
+  margin-top: 10px; 
+  padding: 10px;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  background-color: white 
 }
 
 .paste-container button {
-  margin-top: 10px; /* Space above the buttons */
-  margin-right: 10px; /* Space between buttons */
-  padding: 10px 20px; /* Padding inside buttons */
-  border: none; /* Remove default border */
-  background-color: #007bff; /* Bootstrap primary color for consistency */
-  color: white; /* Text color */
-  border-radius: 5px; /* Rounded corners for buttons */
-  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; 
+  margin-right: 10px; 
+  padding: 10px 20px; 
+  border: none; 
+  background-color: #007bff;
+  color: white; 
+  border-radius: 5px; 
+  cursor: pointer; 
 }
 
 .paste-container button:hover {
-  background-color: #0056b3; /* Darker shade on hover for feedback */
+  background-color: #0056b3; 
+}
+
+.paste-container textarea::placeholder {
+  color: black;
+  opacity: 1; 
+}
+
+/* footer */
+
+.footer {
+  background-color: #f0f0f0; 
+  color: #333;
+  text-align: center; 
+  padding: 20px 0; 
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); 
 }

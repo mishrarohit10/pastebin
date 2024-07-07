@@ -10,7 +10,7 @@ export function PasteDisplay() {
     const [isEditable, setIsEditable] = useState<boolean>(false)
 
     useEffect(() => {
-        const pasteId = window.location.pathname.split('/')[2]; // Assuming URL pattern is /pastes/:id
+        const pasteId = window.location.pathname.split('/')[2]; 
         if (pasteId) {
             fetchPaste(pasteId);
         }
@@ -41,7 +41,7 @@ export function PasteDisplay() {
             console.log(response, "response");
             if (response.status === 201) {
                 setSaved(true);
-                setShareLink(`http://localhost:5173/pastes/${response.data.id}`);
+                setShareLink(`${window.location.origin}/pastes/${response.data.id}`);
             }
         } catch (error) {
             console.error("An error occurred:", error);
