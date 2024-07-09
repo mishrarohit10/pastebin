@@ -1,2 +1,2 @@
 # pastebin
-built in react and nodejs
+built in react and nodejs preparing to deploy backend
