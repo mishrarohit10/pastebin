@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import serverless from 'serverless-http';
 
 dotenv.config();
 
@@ -29,7 +30,6 @@ const port = 3000;
 
 app.use(cors());
 app.use(express.json());
-
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
@@ -113,3 +113,5 @@ app.get('/pastes/:id/download', async (req, res) => {
     res.status(500).send('Failed to fetch paste');
   }
 });
+
+module.exports.handler = serverless(app);
