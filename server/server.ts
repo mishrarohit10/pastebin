@@ -20,9 +20,6 @@ const pasteSchema = new mongoose.Schema({
 });
 
 const Paste = mongoose.model('Paste', pasteSchema);
-mongoose.connect('mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.muz34y3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((error) => console.error('Connection error:', error));
 const generateId = () => uuidv4();
 
 const app = express();
