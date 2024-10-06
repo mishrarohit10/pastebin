@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import './App.css';
 import axios from "axios";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+
 export function PasteDisplay() {
 
     const [paste, setPaste] = useState<string>("")
@@ -18,7 +20,7 @@ export function PasteDisplay() {
 
     async function fetchPaste(pasteId: string) {
         try {
-            const response = await axios.get(`http://localhost:3000/pastes/${pasteId}`);
+            const response = await axios.get(`${BASE_URL}/pastes/${pasteId}`);
             if (response.status === 200) {
                 setPaste(response.data.content);
             }
@@ -33,7 +35,7 @@ export function PasteDisplay() {
         console.log(paste)
 
         try {
-            const response = await axios.post("http://localhost:3000/pastes", {
+            const response = await axios.post("${BASE_URL}/pastes", {
                 content: paste
             }, {
                 headers: {
