@@ -3,6 +3,7 @@ import './App.css';
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+console.log("process",process.env.REACT_APP_BASE_URL)
 console.log("Server IP",BASE_URL)
 
 export function PasteDisplay() {
