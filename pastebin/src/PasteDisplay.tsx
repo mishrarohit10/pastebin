@@ -36,7 +36,7 @@ export function PasteDisplay() {
         console.log(paste)
 
         try {
-            const response = await axios.post("${BASE_URL}/pastes", {
+            const response = await axios.post(`${BASE_URL}/pastes`, {
                 content: paste
             }, {
                 headers: {
